@@ -1,47 +1,154 @@
- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Editor </title>
-    <link rel="stylesheet" href="style.css">
-	 <link rel="stylesheet" href='F:/Pragramming Language/Document from web/fontawesome-free-5.13.0-web/css/all.css' />
-	</head>
-<body>
+<!DOCTYPE html>
+<html> <head>
+        <title id='title'> Moatasem </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-	<!-- Image and text -->
-<nav class="nav">
-  <a id='namelogo' href="#"> 
-    Muteasm
-  </a> 
-  <img src='01.png' id='img'/>
-</nav>
-
-  <div id='headCon'>
-   <div class='btn'> 
-	   <a href="#"  id='changeA1'target="_blank" class="fa fa-home" ></a> 
-	   <a href="#"  id='changeA' class="fa fa-adjust " >   </a>
-	   <button id='play' style="font-size:16px" >Run »</button>
-	   
-	</div>
-	   
-	   <div class='size-text'>
-	    RESULT 
-	   </div>
-	   
-	</div>
+	<style>
+	body{
+			margin: 0;
+			background: #eee;
+	}
+		main{
+			margin: 0;
+			background: #eee;
+			position: relative;
+		}
+		#me{
+			position: absolute;
+			top: 40px;
+			right: 20px;
+			font-size: 1.5em;
+		}
+	</style>
+    </head>
+    <body> 
 	
-<div id='all' >
-
-  <main>
-	<textarea id='codes'>   
-    </textarea>
-	<!-- <p id='title-result' > Result </p> -->
-  </main>
-  
-<div id='result'></div>
+<nav class="navbar navbar-light bg-light">
+    <a style="line-height: 50px;" class="navbar-brand" href="#">
+      <img src="101.jpg" width="80" height="80" class="d-inline-block align-top"
+       alt="" loading="lazy" style='border-radius: 50%;'>
+       <span id="subtitle"> Coder Moatasem </span>
+     
+    </a> 
+    <div>
+        <button type="button" id="arabic" class="btn btn-outline-success">العربية</button>
+        <button type="button" id="english" class="btn btn-outline-danger">English</button>
 
     </div>
-    <script src="app.js"></script>
+  </nav>
+
+  <div id="welcome-text" class="alert alert-success" style='text-align: center;' >
+    Welcome to website of Coder Moatasem
+  </div>
+  <main >
+    <img src='101.jpg' />
+	
+	<div id='me'>
+	<p id='p1'> I am Mutasim Muhammad Shafa </p>
+	<p id='p2'> I live in Sudan  </p>
+	<p id='p3'> A student atAlsharg Alahhlia College Kassala  </p>
+	<p id='p4'> Second level in college  </p>
+	<p id='p5'> I like web design  </p>
+	<p id='p6'> You have finished the JavaScript course  </p>
+	<p id='p7'> Special thanks to Professor Shiyar </p>
+	</div>
+  </main>
+      
+
+        <footer>
+            <div class="card text-center">
+                <div id="about" class="card-header">
+                  About US
+                </div>
+                <div class="card-body">
+                  <p id="about-text" class="card-text">
+                      I am a web designer using html , css and js </p>
+                  <a id="contact" href="mailto:team.mtsm3732@gmail.com" 
+                  class="btn btn-success"> Contact us </a>
+                </div>
+               
+              </div>
+
+        </footer> 
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    </body>
+</html>
+  
+<script> 
+let p1 = document.getElementById('p1');
+let p2 = document.getElementById('p2');
+let p3 = document.getElementById('p3');
+let p4 = document.getElementById('p4');
+let p5 = document.getElementById('p5');
+let p6 = document.getElementById('p6');
+let p7 = document.getElementById('p7');
+let me = document.getElementById('me');
+
+let ar = document.getElementById("arabic");
+let en = document.getElementById("english");
+let subtitle = document.getElementById("subtitle");
+let title = document.getElementById("title");
+let welcome = document.getElementById("welcome-text");
+let about = document.getElementById("about");
+let aboutText = document.getElementById("about-text");
+let contact = document.getElementById("contact");
+
+ar.onclick = ()=>{
+    setLanugage("arabic");
+    localStorage.setItem("Lang","arabic");
+};
+
+en.onclick = ()=>{
+    setLanugage("english");
+    localStorage.setItem("Lang","english");
+};
+
+onload = ()=>{
+    setLanugage(localStorage.getItem("Lang"));
+};
+function setLanugage(getLanuage){
+if(getLanuage === "arabic"){
+    subtitle.innerHTML = "مبرمج معتصم";  
+    title.innerHTML = "معتصم";  
+    welcome.innerHTML = " مرحبا بكم في صفحة مبرمج معتصم";
+    about.innerHTML = "حولنا";
+    aboutText.innerHTML = "انا مصمم مواقع ويب باستخدام اتش تي ام ال و سي اس اس و جافاسكربت";
+    contact.innerHTML = "اتصل بنا";
+	p1.innerHTML = 'انا معتصم محمد شفا ';
+	p2.innerHTML = 'اعيش فى السودان';
+	p3.innerHTML = 'طالب بكلية الشرق الأهلية كسلا';
+	p4.innerHTML = 'المستوى الثاني في الكلية';
+	p5.innerHTML = 'أنا أحب تصميم الويب';
+	p6.innerHTML = 'لقد انهيت دورة جافاسكربت';
+	p7.innerHTML = 'شكر خاص للاستاذ شيار'; 
+	me.style.textAlign = 'right';
+}else if(getLanuage ==="english"){
+    subtitle.innerHTML = "Coder Moatasem ";
+	title.innerHTML = "Moatasem ";
+    welcome.innerHTML = "Welcome to website of Coder Moatasem";
+    about.innerHTML = "  About US";
+    aboutText.innerHTML = "I am a web designer using html , css and js";
+    contact.innerHTML = "Contact us";
+	p1.innerHTML = 'I am Mutasim Muhammad Shafa';
+	p2.innerHTML = 'I live in Sudan ';
+	p3.innerHTML = 'A student atAlsharg Alahhlia College Kassala';
+	p4.innerHTML = 'Second level in college';
+	p5.innerHTML = 'I like web design ';
+	p6.innerHTML = 'You have finished the JavaScript course ';
+	p7.innerHTML = 'Special thanks to Professor Shiyar'; 
+	me.style.textAlign = 'left';
+
+}  
+
+}
+
+</script>
 </body>
 </html>
+
+
